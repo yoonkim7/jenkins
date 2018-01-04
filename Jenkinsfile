@@ -12,7 +12,7 @@
 	    stage('build'){
 	       try{
                dir('JenkinsMVC'){
-                   bat 'nuget restore'
+                   bat 'dotnet restore'
                    bat 'msbuild /t:clean,rebuild JenkinsMVC.csproj'
                }
             }
