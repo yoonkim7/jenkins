@@ -24,7 +24,11 @@
         
 	    stage('analyze'){
            try{
-
+               dir('JenkinsMVC'){
+                   bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe begin /k:kimylol'
+                   bat 'msbuild /t:rebuild JenkinsMVC.csproj'
+                   bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe end'
+               }
             }
             catch(error){
                 //slackSendmessage: color: 'danger'
