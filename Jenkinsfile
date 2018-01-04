@@ -11,7 +11,10 @@
 	    }
 	    stage('build'){
 	       try{
-
+               dir('JenkinsMVC'){
+                   bat 'nuget restore'
+                   bat 'msbuild /t:clean,rebuild JenkinsMVC.csproj'
+               }
             }
             catch(error){
                 //slackSendmessage: color: 'danger'
