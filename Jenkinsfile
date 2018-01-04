@@ -28,6 +28,7 @@
                    bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe begin /k:kimylol'
                    bat 'msbuild /t:build JenkinsMVC.csproj'
                    bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe end'
+                   
                }
             }
             catch(error){
