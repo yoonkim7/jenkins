@@ -4,7 +4,7 @@
 	        try{
                 git url:'https://github.com/yoonkim7/jenkins.git'
             }
-            catch{
+            catch(error){
                 //slackSendmessage:{env.BUILD_NUMBER} color: 'danger'
             }
             
@@ -13,7 +13,7 @@
 	       try{
 
             }
-            catch{
+            catch(error){
                 //slackSendmessage: color: 'danger'
             }
    
@@ -23,7 +23,7 @@
            try{
 
             }
-            catch{
+            catch(error){
                 //slackSendmessage: color: 'danger'
             }
 
@@ -32,7 +32,7 @@
              try{
 
             }
-            catch{
+            catch(error){
                 //slackSendmessage: color: 'danger'
             }
 	        
@@ -41,7 +41,7 @@
           try{
 
             }
-            catch{
+            catch(error){
                 //slackSendmessage: color: 'danger'
             }
 	        
