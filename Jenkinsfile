@@ -38,7 +38,7 @@
 	    }
 	    stage('test'){
              try{
-                dir('JenkinsMVC.Test'){
+ //               dir('JenkinsMVC.Test'){
  //                   bat 'dotnet restore'
  //                   bat 'msbuild /t:build JenkinsMVC.Tests.csproj'
  //                   bat 'dotnet test'
