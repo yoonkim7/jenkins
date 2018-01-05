@@ -26,7 +26,7 @@
            try{
                dir('JenkinsMVC'){
                    bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe begin /k:welala'
-                   bat 'msbuild /t:rebuild JenkinsMVC.csproj'
+                   bat 'msbuild /t:build JenkinsMVC.csproj'
                    bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe end'
                    
                }
@@ -36,9 +36,23 @@
             }
 
 	    }
-	    stage('package'){
+	    stage('test'){
              try{
- 
+                dir('JenkinsMVC.Test'){
+ //                   bat 'dotnet restore'
+ //                   bat 'msbuild /t:build JenkinsMVC.Tests.csproj'
+ //                   bat 'dotnet test'
+                }
+            }
+            catch(error){
+                //slackSendmessage: color: 'danger'
+            }
+	        
+	    } stage('package'){
+             try{
+                 dir('JenkinsMVC'){
+                     bat 'msbuild /t:package JenkinsMVC.csproj'
+                 }
             }
             catch(error){
                 //slackSendmessage: color: 'danger'
