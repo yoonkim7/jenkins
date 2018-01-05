@@ -53,7 +53,7 @@
              try{
                  dir('JenkinsMVC'){
                    //  bat 'msbuild /t:pack JenkinsMVC.csproj'
-                    bat 'dotnet pack JenkinsMVC.csproj -- output ../Package'
+                    bat 'dotnet package JenkinsMVC.csproj -- output ../Package'
                  }
             }
             catch(error){
@@ -63,6 +63,8 @@
 	    }
 	    stage('deploy'){
           try{
+              
+
 
             }
             catch(error){
