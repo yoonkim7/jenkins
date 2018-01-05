@@ -51,7 +51,7 @@
 	    } stage('package'){
              try{
                  dir('JenkinsMVC'){
-                     bat 'msbuild /t:package JenkinsMVC.csproj'
+                     bat 'msbuild /t:pack JenkinsMVC.csproj'
                  }
             }
             catch(error){
