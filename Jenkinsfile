@@ -53,7 +53,7 @@
              try{
                  dir('JenkinsMVC'){
                    //  bat 'msbuild /t:pack JenkinsMVC.csproj'
-                    bat 'dotnet publish JenkinsMVC.csproj -- output ../Package'
+                    bat 'dotnet publish JenkinsMVC.csproj --output ../Package'
                  }
             }
             catch(error){
@@ -63,7 +63,7 @@
 	    }
 	    stage('deploy'){
           try{
-              //p:computer= dnsawc -p:username=admin -p:password= the passwordkeything with """                                                                                                           C:\Program Files (x86)\Jenkins\workspace\JenkinsPipeLine
+              //p:computer= dnsawc -p:username=admin -p:password= the passwordkeything with """                                                    workspace\JenkinsPipeLine\JenkinsMVC\bin\Debug\netcoreapp2.0\                                                       C:\Program Files (x86)\Jenkins\workspace\JenkinsPipeLine
           //    '"C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\JenkinsOps\\obj\\Debug\\netcoreapp2.0\\PubTmp\\Out" -dest:iisApp="Default Web Site/jenkinsops" -p:computer= -p:username= -p:password=  -enableRule:AppOffline'
 
             }
