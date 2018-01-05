@@ -66,7 +66,7 @@
               //p:computer= dnsawc -p:username=admin -p:password= the passwordkeything with """                                                    workspace\JenkinsPipeLine\JenkinsMVC\bin\Debug\netcoreapp2.0\                                                       C:\Program Files (x86)\Jenkins\workspace\JenkinsPipeLine
 
                    bat 'dotnet build ./JenkinsMVC/JenkinsMVC.csproj /p:DeployOnBuild=true /p:PublishProfile=publish.pubxml'
-                   bat 'msdeploy -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\" -dest:iisApp="Default Web Site/NAMEOFPROJECT" ,computername=ec2-54-165-189-15.compute-1.amazonaws.com,username=Administrator,password="T;RfM*zCOnjBniVKDPm$*zBH-in5@%(9"  -enableRule:AppOffline'
+                   bat 'msdeploy -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\" -dest:iisApp="Default Web Site/NAMEOFPROJECT" ,computername="ec2-54-165-189-15.compute-1.amazonaws.com",username="Administrator",password="T;RfM*zCOnjBniVKDPm$*zBH-in5@%(9"  -enableRule:AppOffline'
               
             }
             catch(error){
