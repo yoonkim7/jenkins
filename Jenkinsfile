@@ -36,19 +36,20 @@
             }
 
 	    }
-	    stage('test'){
-             try{
+//	    stage('test'){
+//             try{
  //               dir('JenkinsMVC.Test'){
  //                   bat 'dotnet restore'
  //                   bat 'msbuild /t:build JenkinsMVC.Tests.csproj'
  //                   bat 'dotnet test'
-                }
-            }
-            catch(error){
-                //slackSendmessage: color: 'danger'
-            }
+ //               }
+ //           }
+ //           catch(error){
+ //               //slackSendmessage: color: 'danger'
+ //           }
 	        
-	    } stage('package'){
+//	    }
+         stage('package'){
              try{
                  dir('JenkinsMVC'){
                      bat 'msbuild /t:pack JenkinsMVC.csproj'
