@@ -53,7 +53,7 @@
              try{
                  dir('JenkinsMVC'){
                    //  bat 'msbuild /t:pack JenkinsMVC.csproj'
-                    bat 'dotnet publish JenkinsMVC.csproj --output ../Package'
+                    bat 'dotnet publish JenkinsMVC.csproj'// --output ../Package'
                  }
             }
             catch(error){
@@ -62,10 +62,11 @@
 	        
 	    }
 	    stage('deploy'){
-          try{
+          try{//-p:computer=ec2-54-165-189-15.compute-1.amazonaws.com -p:username=admin -p:password=T;RfM*zCOnjBniVKDPm$*zBH-in5@%(9
               //p:computer= dnsawc -p:username=admin -p:password= the passwordkeything with """                                                    workspace\JenkinsPipeLine\JenkinsMVC\bin\Debug\netcoreapp2.0\                                                       C:\Program Files (x86)\Jenkins\workspace\JenkinsPipeLine
-          //    '"C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\JenkinsOps\\obj\\Debug\\netcoreapp2.0\\PubTmp\\Out" -dest:iisApp="Default Web Site/jenkinsops" -p:computer= -p:username= -p:password=  -enableRule:AppOffline'
-            //'  "C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\jenkinsops\\hellopipeline\\JenkinsOps\\obj\\Debug\\netcoreapp2.0\\PubTmp\\Out" -dest:iisApp="Default Web Site/jenkinsops" -p:computer= -p:username= -p:password=  -enableRule:AppOffline'
+                   bat 'dotnet build /p:DeployOnBuild=true /p:PublishProfile=publish.pubxml'
+                   bat 'msdeploy -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\wwwroot" -dest:iisApp="Default Web Site/ProjectName" ,computername=ec2-54-165-189-15.compute-1.amazonaws.com,username=Administrator,password="T;RfM*zCOnjBniVKDPm$*zBH-in5@%(9"  -enableRule:AppOffline''
+              
             }
             catch(error){
                 //slackSendmessage: color: 'danger'
