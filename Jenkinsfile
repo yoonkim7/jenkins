@@ -67,8 +67,11 @@
 
                    bat 'dotnet build ./JenkinsMVC/JenkinsMVC.csproj /p:DeployOnBuild=true /p:PublishProfile=publish.pubxml'
               //Password12345
-                 bat '"C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\" -dest:iisApp="Default Web Site/JenkinsPipeLine",computerName="http://ec2-54-165-189-15.compute-1.amazonaws.com:8172/msdeploy.axd",username=Administrator,password=Password12345,authType=basic -allowUntrusted -enableRule:AppOffline'
+      //           bat '"C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\" -dest:iisApp="Default Web Site/JenkinsPipeLine",computerName="http://ec2-54-165-189-15.compute-1.amazonaws.com:8172/msdeploy.axd",username=Administrator,password=Password12345,authType=basic -allowUntrusted -enableRule:AppOffline'
                //bat '"C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\" -dest:iisApp="Default Web Site/JenkinsPipeLine" -allowUntrusted -enableRule:AppOffline'
+                 bat '"C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\JenkinsPipeLine\\Package\\" -dest:iisApp="Default Web Site/JenkinsPipeLine",computerName="http://ec2-52-90-207-134.compute-1.amazonaws.com:8172/msdeploy.axd",username=Administrator,password="V$&xxvs.vQj!-H4@t!nEsfa3-hcuI7Hd",authType=basic -allowUntrusted -enableRule:AppOffline'
+               
+               //password for 2nd server  V$&xxvs.vQj!-H4@t!nEsfa3-hcuI7Hd
                } catch(error) {
       //slackSend message: color:'danger'
              }
