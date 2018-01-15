@@ -12,7 +12,8 @@
 	    }
 	    stage('build'){
 	       try{
-               dir('JenkinsMVC'){
+               //dir('JenkinsMVC'){
+                dir('MinionChat'){
                    bat 'dotnet restore'
               //     bat 'msbuild /t:clean,rebuild JenkinsMVC.csproj'
              bat 'msbuild /t:clean,build MinionChat.sln'
@@ -26,7 +27,8 @@
         
 	    stage('analyze'){
            try{
-               dir('JenkinsMVC'){
+               //dir('JenkinsMVC'){
+               dir('MinionChat'){  
                    bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe begin /k:kimylol'
                   // bat 'msbuild /t:build JenkinsMVC.csproj'
                    bat 'msbuild /t:build MinionChat.sln'
@@ -54,7 +56,8 @@
 //	    }
          stage('package'){
              try{
-                 dir('JenkinsMVC'){
+              //   dir('JenkinsMVC'){
+                  dir('MinionChat'){
                    //  bat 'msbuild /t:pack JenkinsMVC.csproj'
                     //bat 'dotnet publish JenkinsMVC.csproj' --output ../Package'
                    // bat 'dotnet publish JenkinsMVC.csproj -c Release --output ../Package'
