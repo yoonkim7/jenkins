@@ -2,7 +2,8 @@
 	node('master'){
 	    stage('import'){
 	        try{
-                git url:'https://github.com/yoonkim7/jenkins.git'
+               // git url:'https://github.com/yoonkim7/jenkins.git'
+               git url: 'https://github.com/Jatubs/RevatureProject2.git'
             }
             catch(error){
                 //slackSendmessage:{env.BUILD_NUMBER} color: 'danger'
@@ -13,7 +14,8 @@
 	       try{
                dir('JenkinsMVC'){
                    bat 'dotnet restore'
-                   bat 'msbuild /t:clean,rebuild JenkinsMVC.csproj'
+              //     bat 'msbuild /t:clean,rebuild JenkinsMVC.csproj'
+             bat 'msbuild /t:clean,build MinionChat.sln'
                }
             }
             catch(error){
@@ -25,8 +27,9 @@
 	    stage('analyze'){
            try{
                dir('JenkinsMVC'){
-                   bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe begin /k:welala'
-                   bat 'msbuild /t:build JenkinsMVC.csproj'
+                   bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe begin /k:kimylol'
+                  // bat 'msbuild /t:build JenkinsMVC.csproj'
+                   bat 'msbuild /t:build MinionChat.sln'
                    bat 'C:\\Tools\\SonarQube\\SonarQube.Scanner.MSBuild.exe end'
                    
                }
@@ -54,7 +57,9 @@
                  dir('JenkinsMVC'){
                    //  bat 'msbuild /t:pack JenkinsMVC.csproj'
                     //bat 'dotnet publish JenkinsMVC.csproj' --output ../Package'
-                    bat 'dotnet publish JenkinsMVC.csproj -c Release --output ../Package'
+                   // bat 'dotnet publish JenkinsMVC.csproj -c Release --output ../Package'
+                   bat 'dotnet publish MinionChat.sln -c Release --output ../Package'
+                   
                  }
             }
             catch(error){
